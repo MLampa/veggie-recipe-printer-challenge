@@ -34,15 +34,15 @@ recipe_template = <<-ERB
 Ingredients
 -----------
 <% recipe[:ingredients].each do |item| %>
-  <%= item %>
-<%end%>
+  <%= item -%>
+<% end %>
 
 Directions
 -----------
 <% recipe[:directions].each_with_index do |instructions, i| %>
-  <%=i+1%>. <%=instructions %>
-<%end%>
+  <%= i+1 %>. <%= instructions %>
+<% end %>
 ERB
 
-erb = ERB.new(recipe_template)
+erb = ERB.new(recipe_template, nil, '-')
 puts erb.result
